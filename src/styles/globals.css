@@ -1,45 +1,11 @@
-/* src/styles/globals.css */
+@import './themes.css';
+@import './animations.css';
+
 :root {
-  --bg: #07071A;
-  --bg2: #0D0D26;
-  --bg3: #12122E;
-  --card: #14143A;
-  --card2: #1A1A45;
-  --border: #252560;
-  --border2: #2E2E70;
-  --primary: #6C3BFF;
-  --primary2: #8A5FFF;
-  --primary3: #5025E0;
-  --accent: #00D4FF;
-  --accent2: #00B8E0;
-  --success: #00FFB2;
-  --success2: #00CC90;
-  --warning: #FFB800;
-  --danger: #FF4D4D;
-  --gold: #FFD700;
-  --text: #EAEAF0;
-  --text2: #A0A0C8;
-  --text3: #6B6B98;
   --radius: 16px;
   --radius2: 12px;
   --radius3: 8px;
-  --shadow: 0 8px 32px rgba(108, 59, 255, 0.15);
-  --shadow2: 0 4px 16px rgba(0, 0, 0, 0.4);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Light theme */
-[data-theme="light"] {
-  --bg: #FFFFFF;
-  --bg2: #F5F5F5;
-  --bg3: #E8E8E8;
-  --card: #FFFFFF;
-  --card2: #F8F8F8;
-  --border: #E0E0E0;
-  --border2: #CCCCCC;
-  --text: #1A1A2E;
-  --text2: #4A4A6A;
-  --text3: #8A8A9E;
 }
 
 * {
@@ -127,4 +93,38 @@ input[type="button"] {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+/* Utility classes */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(108, 59, 255, 0.3);
 }
