@@ -1,0 +1,159 @@
+changex-academy/
+├── public/
+│   ├── manifest.json
+│   ├── sw.js
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── Toast.jsx
+│   │   │   ├── Skeleton.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   ├── ErrorBoundary.jsx
+│   │   │   └── PrivateRoute.jsx
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── BottomNav.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── courses/
+│   │   │   ├── CourseCard.jsx
+│   │   │   ├── CourseFilters.jsx
+│   │   │   ├── LessonPlayer.jsx
+│   │   │   ├── CurriculumSection.jsx
+│   │   │   └── CertificateGenerator.jsx
+│   │   ├── practice/
+│   │   │   ├── CodeEditor.jsx
+│   │   │   ├── ChallengeCard.jsx
+│   │   │   ├── TestRunner.jsx
+│   │   │   └── ConsoleOutput.jsx
+│   │   ├── earn/
+│   │   │   ├── AffiliateDashboard.jsx
+│   │   │   ├── CommissionChart.jsx
+│   │   │   ├── WithdrawForm.jsx
+│   │   │   └── ReferralTree.jsx
+│   │   ├── marketplace/
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── CartSidebar.jsx
+│   │   │   ├── JobCard.jsx
+│   │   │   └── FreelanceCard.jsx
+│   │   ├── community/
+│   │   │   ├── PostCard.jsx
+│   │   │   ├── CommentSection.jsx
+│   │   │   ├── ChatWindow.jsx
+│   │   │   └── GroupCard.jsx
+│   │   ├── ai/
+│   │   │   ├── AIChat.jsx
+│   │   │   ├── VoiceInput.jsx
+│   │   │   └── CodeDebugger.jsx
+│   │   └── gamification/
+│   │       ├── XPBar.jsx
+│   │       ├── BadgeCard.jsx
+│   │       ├── StreakCalendar.jsx
+│   │       └── LeaderboardTable.jsx
+│   ├── pages/
+│   │   ├── auth/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── ForgotPassword.jsx
+│   │   │   ├── ResetPassword.jsx
+│   │   │   ├── VerifyEmail.jsx
+│   │   │   └── TwoFactorAuth.jsx
+│   │   ├── Home.jsx
+│   │   ├── Courses.jsx
+│   │   ├── CourseDetail.jsx
+│   │   ├── LessonPlayer.jsx
+│   │   ├── Practice.jsx
+│   │   ├── ChallengeDetail.jsx
+│   │   ├── Earn.jsx
+│   │   ├── AffiliateDashboard.jsx
+│   │   ├── Wallet.jsx
+│   │   ├── Marketplace.jsx
+│   │   ├── Cart.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── Orders.jsx
+│   │   ├── Community.jsx
+│   │   ├── GroupDetail.jsx
+│   │   ├── Profile.jsx
+│   │   ├── Settings.jsx
+│   │   ├── Leaderboard.jsx
+│   │   ├── Badges.jsx
+│   │   ├── Notifications.jsx
+│   │   ├── Support.jsx
+│   │   ├── Help.jsx
+│   │   ├── About.jsx
+│   │   ├── Terms.jsx
+│   │   ├── Privacy.jsx
+│   │   ├── Instructor.jsx
+│   │   ├── Admin.jsx
+│   │   └── NotFound.jsx
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useAxios.js
+│   │   ├── useLocalStorage.js
+│   │   ├── useDebounce.js
+│   │   ├── useIntersectionObserver.js
+│   │   ├── useWebSocket.js
+│   │   ├── useInfiniteScroll.js
+│   │   └── useMediaQuery.js
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── auth.js
+│   │   ├── courses.js
+│   │   ├── practice.js
+│   │   ├── earn.js
+│   │   ├── marketplace.js
+│   │   ├── community.js
+│   │   ├── ai.js
+│   │   ├── payments.js
+│   │   ├── notifications.js
+│   │   └── websocket.js
+│   ├── store/
+│   │   ├── index.js
+│   │   ├── authSlice.js
+│   │   ├── userSlice.js
+│   │   ├── coursesSlice.js
+│   │   ├── practiceSlice.js
+│   │   ├── earnSlice.js
+│   │   ├── marketplaceSlice.js
+│   │   ├── communitySlice.js
+│   │   ├── uiSlice.js
+│   │   └── notificationsSlice.js
+│   ├── utils/
+│   │   ├── constants.js
+│   │   ├── helpers.js
+│   │   ├── validators.js
+│   │   ├── formatters.js
+│   │   ├── analytics.js
+│   │   ├── errorHandler.js
+│   │   └── sentry.js
+│   ├── styles/
+│   │   ├── globals.css
+│   │   ├── themes.css
+│   │   └── animations.css
+│   ├── assets/
+│   │   ├── icons/
+│   │   └── images/
+│   ├── tests/
+│   │   ├── unit/
+│   │   ├── integration/
+│   │   └── e2e/
+│   ├── config/
+│   │   └── env.js
+│   ├── App.jsx
+│   ├── AppRoutes.jsx
+│   └── main.jsx
+├── .env.example
+├── .eslintrc.js
+├── .prettierrc
+├── index.html
+├── package.json
+├── vite.config.js
+├── vitest.config.js
+├── cypress.config.js
+├── .github/workflows/ci.yml
+└── README.md
