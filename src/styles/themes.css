@@ -1,11 +1,58 @@
-/* src/styles/themes.css */
-.theme-transition {
-  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+/* Light theme variables */
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --bg2: #F5F7FA;
+  --bg3: #E8ECF2;
+  --card: #FFFFFF;
+  --card2: #F8FAFE;
+  --border: #E2E8F0;
+  --border2: #CBD5E1;
+  --primary: #6C3BFF;
+  --primary2: #8A5FFF;
+  --primary3: #5025E0;
+  --accent: #00D4FF;
+  --accent2: #00B8E0;
+  --success: #10B981;
+  --success2: #059669;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --gold: #FBBF24;
+  --text: #1E293B;
+  --text2: #475569;
+  --text3: #94A3B8;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow2: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme variables (default) */
+[data-theme="dark"] {
+  --bg: #07071A;
+  --bg2: #0D0D26;
+  --bg3: #12122E;
+  --card: #14143A;
+  --card2: #1A1A45;
+  --border: #252560;
+  --border2: #2E2E70;
+  --primary: #6C3BFF;
+  --primary2: #8A5FFF;
+  --primary3: #5025E0;
+  --accent: #00D4FF;
+  --accent2: #00B8E0;
+  --success: #00FFB2;
+  --success2: #00CC90;
+  --warning: #FFB800;
+  --danger: #FF4D4D;
+  --gold: #FFD700;
+  --text: #EAEAF0;
+  --text2: #A0A0C8;
+  --text3: #6B6B98;
+  --shadow: 0 8px 32px rgba(108, 59, 255, 0.15);
+  --shadow2: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* System preference detection */
 @media (prefers-color-scheme: dark) {
-  .system-theme {
+  :root:not([data-theme="light"]) {
     --bg: #07071A;
     --bg2: #0D0D26;
     --text: #EAEAF0;
@@ -13,11 +60,16 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .system-theme {
+  :root:not([data-theme="dark"]) {
     --bg: #FFFFFF;
-    --bg2: #F5F5F5;
-    --text: #1A1A2E;
+    --bg2: #F5F7FA;
+    --text: #1E293B;
   }
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /* High contrast mode support */
@@ -28,5 +80,6 @@
     --accent: #00AAFF;
     --success: #00AA00;
     --border: #000000;
+    --border2: #333333;
   }
 }
