@@ -1,3 +1,5 @@
+
+```markdown
 # Change X Academy - Complete Production-Ready Platform
 
 ## 🚀 Overview
@@ -134,3 +136,236 @@ Change X Academy is Nigeria's #1 Learn-to-Earn platform where students can maste
 ```bash
 git clone https://github.com/changexacademy/changex-frontend.git
 cd changex-frontend
+```
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+1. Copy environment variables:
+
+```bash
+cp .env.example .env
+```
+
+1. Update .env with your API keys and configuration.
+2. Start development server:
+
+```bash
+npm run dev
+```
+
+1. Build for production:
+
+```bash
+npm run build
+```
+
+🔌 Backend API Contract
+
+Authentication Endpoints
+
+Method Endpoint Description
+POST /auth/register Register new user
+POST /auth/login Login user
+POST /auth/logout Logout user
+POST /auth/refresh Refresh JWT token
+POST /auth/forgot-password Request password reset
+POST /auth/reset-password Reset password
+POST /auth/verify-email Verify email
+POST /auth/2fa/setup Setup 2FA
+POST /auth/2fa/verify Verify 2FA token
+
+Courses Endpoints
+
+Method Endpoint Description
+GET /courses List courses with filters
+GET /courses/:id Get course details
+POST /courses/:id/enroll Enroll in course
+GET /courses/:id/progress Get user progress
+POST /courses/:id/lessons/:lessonId/complete Mark lesson complete
+POST /courses/:id/reviews Submit review
+
+Practice Endpoints
+
+Method Endpoint Description
+GET /practice/challenges List challenges
+POST /practice/execute Execute code
+POST /practice/challenges/:id/submit Submit solution
+GET /practice/streak Get streak info
+
+Earn Endpoints
+
+Method Endpoint Description
+GET /earn/affiliate/stats Get affiliate stats
+GET /earn/earnings Get earnings history
+POST /earn/withdrawals Request withdrawal
+GET /earn/bank-accounts Get linked banks
+
+🧪 Testing
+
+```bash
+# Run unit tests
+npm run test
+
+# Run E2E tests
+npm run test:e2e
+
+# Run tests with UI
+npm run test:ui
+```
+
+📱 PWA Installation
+
+The app is a Progressive Web App and can be installed on:
+
+· Android: Chrome → "Add to Home Screen"
+· iOS: Safari → "Share" → "Add to Home Screen"
+· Desktop: Chrome → Install icon in address bar
+
+🔒 Security
+
+· JWT tokens with refresh mechanism
+· HTTPS enforced
+· XSS protection
+· CSRF protection
+· Rate limiting
+· Input validation
+· SQL injection prevention (backend)
+
+🌐 Deployment
+
+Vercel
+
+```bash
+npm run build
+vercel --prod
+```
+
+Netlify
+
+```bash
+npm run build
+netlify deploy --prod --dir=dist
+```
+
+Docker
+
+```dockerfile
+FROM node:18-alpine as builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+📄 License
+
+MIT License - see LICENSE file for details
+
+👥 Contributors
+
+· Change X Academy Team
+
+🆘 Support
+
+· Email: support@changexacademy.ng
+· Twitter: @ChangeXAcademy
+· Discord: https://discord.gg/changexacademy
+
+```
+
+### 20. GitHub Actions CI/CD
+
+```yaml
+# .github/workflows/ci.yml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run ESLint
+        run: npm run lint
+      
+      - name: Run tests
+        run: npm run test
+        env:
+          CI: true
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+
+  build:
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+```
