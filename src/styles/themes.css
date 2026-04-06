@@ -1,0 +1,32 @@
+/* src/styles/themes.css */
+.theme-transition {
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+  .system-theme {
+    --bg: #07071A;
+    --bg2: #0D0D26;
+    --text: #EAEAF0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .system-theme {
+    --bg: #FFFFFF;
+    --bg2: #F5F5F5;
+    --text: #1A1A2E;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #0000FF;
+    --primary2: #3333FF;
+    --accent: #00AAFF;
+    --success: #00AA00;
+    --border: #000000;
+  }
+}
